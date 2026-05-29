@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
 
 const HERO_IMG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuC99pyONQJqtJ-7L6wFpi6_KrvfqZLNYnqjipnAPFkHH3MhcSjmLOwId3sgSPODDGsWy-KWiz5zVPmpSEfV_RrHCRsw8Wq6FWbe08-be3V2Ot7IIo6KC5GtiWvUVEmEXhdcKXLqIaZVkOC6LmuuTz-cetexgbKNxdIlRIGv9xYFk9lbDSxzsx3p3w4jY7HD1ujl2sbk4t7N326kOM1TXGcb6WFPcpmrUgCp8evrfi2J1LcGh0AwozmDb9fHWcDKNYpFflrca-KAmw'
-const CTA_IMG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCTy-v4TUrKGvb8FC_MsOM3AoFZolNxaFTtu2m0WvQPJ17QXY_vZHZkfvO5pa6aCK3CZ1_6meE57uW1U6KlQeoVmB0ik3cbTKp8jcnEJzLWN_YFBCj0WrPG22egomvU8QgWW1ysqvvf_Jjigk_iL35Jz9D79KGW_1mGT64riqubmijTdpi1tMMxe2MjSApyQHjwKnf094Y9y8aD780EJmP3rkxLTvZhtt-7KPyq8OH7jKgci3uG9tyfFc_kZ4Ba2yTHFPalsL2Cpw'
 
 const methodSteps = [
   { n: '01', title: 'Diaqnostika Mərhələsi', desc: 'Əsas göstəriciləri müəyyən etmək üçün ilkin məlumat udulması və mühit xəritəsi.' },
@@ -127,25 +126,80 @@ export default function AuditorServices() {
       {/* CTA */}
       <section className="py-24 max-w-container-max mx-auto px-margin-desktop">
         <div className="bg-primary rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-2 shadow-[0_24px_64px_-16px_rgba(5,27,14,0.3)]">
-          <div className="p-12 md:p-16">
+          {/* Left: Form */}
+          <div className="p-12 md:p-16 flex flex-col justify-center">
+            <span className="inline-flex items-center gap-2 text-secondary font-label-md text-label-md uppercase tracking-widest text-[11px] mb-6">
+              <span className="w-5 h-px bg-secondary" />
+              Əlaqəyə Keçin
+            </span>
             <h2 className="font-headline-lg text-headline-lg text-white mb-6">İnstitusional Yoxlamanıza Başlayın</h2>
             <p className="font-body-lg text-body-lg text-white/60 mb-10 leading-relaxed">
               Baş tərəfdaşlarımız korporativ audit tələblərinizlə bağlı gizli konsultasiya üçün mövcuddur.
             </p>
-            <div className="space-y-5">
+            <div className="space-y-4">
               <div>
                 <label className="font-label-md text-label-md text-white/50 block mb-2 uppercase tracking-wider">Korporativ E-poçt Ünvanı</label>
                 <input className="w-full bg-white/8 text-white placeholder:text-white/30 rounded-xl py-3 px-4 border border-white/15 outline-none focus:border-secondary/60 transition-colors" placeholder="office@enterprise.com" type="email" />
               </div>
-              <Link to="/contact" className="inline-flex items-center gap-2 bg-secondary text-on-secondary px-8 py-4 rounded-xl font-label-md text-label-md uppercase tracking-widest hover:brightness-110 transition-all">
+              <div>
+                <label className="font-label-md text-label-md text-white/50 block mb-2 uppercase tracking-wider">Şirkət Adı</label>
+                <input className="w-full bg-white/8 text-white placeholder:text-white/30 rounded-xl py-3 px-4 border border-white/15 outline-none focus:border-secondary/60 transition-colors" placeholder="Şirkətinizin adı" type="text" />
+              </div>
+              <div>
+                <label className="font-label-md text-label-md text-white/50 block mb-2 uppercase tracking-wider">Xidmət Növü</label>
+                <select className="w-full bg-white/8 text-white/70 rounded-xl py-3 px-4 border border-white/15 outline-none focus:border-secondary/60 transition-colors appearance-none">
+                  <option value="" style={{ background: '#051b0e' }}>Xidmət seçin</option>
+                  <option value="internal" style={{ background: '#051b0e' }}>Daxili Audit</option>
+                  <option value="external" style={{ background: '#051b0e' }}>Xarici Statutar Audit</option>
+                  <option value="risk" style={{ background: '#051b0e' }}>Risk Qiymətləndirilməsi</option>
+                  <option value="compliance" style={{ background: '#051b0e' }}>Tənzimləyici Uyğunluq</option>
+                </select>
+              </div>
+              <Link to="/contact" className="inline-flex items-center gap-2 bg-secondary text-on-secondary px-8 py-4 rounded-xl font-label-md text-label-md uppercase tracking-widest hover:brightness-110 transition-all mt-2">
                 Konsultasiya İstəyin
                 <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>arrow_forward</span>
               </Link>
             </div>
           </div>
-          <div className="hidden md:block relative overflow-hidden">
-            <img src={CTA_IMG} alt="Memarlıq" className="w-full h-full object-cover opacity-30 grayscale" />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-transparent to-transparent" />
+
+          {/* Right: Stats & Trust signals */}
+          <div className="relative p-12 md:p-16 flex flex-col justify-between border-t md:border-t-0 md:border-l border-white/10">
+            <div className="absolute inset-0 grid-pattern opacity-10 rounded-r-3xl" />
+            <div className="relative z-10 flex flex-col gap-10">
+              <div>
+                <p className="font-label-md text-label-md text-secondary uppercase tracking-widest text-[11px] mb-8">Niyə Principal Audit</p>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { value: '99.8%', label: 'Uyğunluq Dərəcəsi' },
+                    { value: '25+', label: 'İllik Təcrübə' },
+                    { value: '400+', label: 'Korporativ Müştəri' },
+                    { value: '15+', label: 'Qlobal Ofis' },
+                  ].map(s => (
+                    <div key={s.label} className="glass p-5 rounded-xl">
+                      <div className="text-2xl font-bold text-white mb-1">{s.value}</div>
+                      <div className="font-label-md text-label-md text-white/50 uppercase tracking-wider text-[10px]">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="font-label-md text-label-md text-white/40 uppercase tracking-widest text-[10px] mb-5">Zəmanətlərimiz</p>
+                <div className="space-y-4">
+                  {[
+                    { icon: 'verified', text: 'Basel III/IV & IFRS 9 ekspertizası' },
+                    { icon: 'schedule', text: '48 saat ərzində ilkin cavab' },
+                    { icon: 'lock', text: 'Tam məxfilik zəmanəti' },
+                    { icon: 'workspace_premium', text: 'Sertifikatlı audit partnyorları' },
+                  ].map(item => (
+                    <div key={item.text} className="flex items-center gap-3">
+                      <span className="material-symbols-outlined text-secondary flex-shrink-0" style={{ fontSize: '18px' }}>{item.icon}</span>
+                      <span className="font-body-sm text-body-sm text-white/70">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
