@@ -101,30 +101,36 @@ export default function Navbar() {
                     </span>
                   </Link>
 
-                  {/* Dropdown */}
+                  {/* Dropdown — outer div bridges the gap between link and panel */}
                   <div
-                    className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-background rounded-xl border border-outline-variant shadow-2xl shadow-primary/10 overflow-hidden transition-all duration-200 origin-top ${
-                      activeDropdown === link.label
-                        ? 'opacity-100 scale-y-100 pointer-events-auto'
-                        : 'opacity-0 scale-y-95 pointer-events-none'
+                    className={`absolute top-full left-1/2 -translate-x-1/2 w-64 pt-2 ${
+                      activeDropdown === link.label ? 'pointer-events-auto' : 'pointer-events-none'
                     }`}
-                    style={{ transformOrigin: 'top center' }}
                   >
-                    <div className="p-2">
-                      {link.dropdown.map((item) => (
-                        <Link
-                          key={item.to}
-                          to={item.to}
-                          className={`flex items-center gap-3 px-4 py-3 rounded-lg font-body-sm text-body-sm transition-all duration-150 group ${
-                            location.pathname === item.to
-                              ? 'bg-secondary-container text-on-secondary-container'
-                              : 'text-on-surface-variant hover:bg-surface-container hover:text-primary'
-                          }`}
-                        >
-                          <span className="w-1 h-1 rounded-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
-                          {item.label}
-                        </Link>
-                      ))}
+                    <div
+                      className={`bg-background rounded-xl border border-outline-variant shadow-2xl shadow-primary/10 overflow-hidden transition-all duration-200 ${
+                        activeDropdown === link.label
+                          ? 'opacity-100 scale-y-100'
+                          : 'opacity-0 scale-y-95'
+                      }`}
+                      style={{ transformOrigin: 'top center' }}
+                    >
+                      <div className="p-2">
+                        {link.dropdown.map((item) => (
+                          <Link
+                            key={item.to}
+                            to={item.to}
+                            className={`flex items-center gap-3 px-4 py-3 rounded-lg font-body-sm text-body-sm transition-all duration-150 group ${
+                              location.pathname === item.to
+                                ? 'bg-secondary-container text-on-secondary-container'
+                                : 'text-on-surface-variant hover:bg-surface-container hover:text-primary'
+                            }`}
+                          >
+                            <span className="w-1 h-1 rounded-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

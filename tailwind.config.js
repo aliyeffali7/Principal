@@ -93,7 +93,7 @@ export default {
         "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
       },
       maxWidth: {
-        "container-max": "1280px",
+        "container-max": "100%",
       },
     },
   },
