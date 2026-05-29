@@ -46,6 +46,24 @@ export default function Footer() {
             <p className="font-body-sm text-body-sm text-white/60 leading-relaxed mb-8 max-w-xs">
               Peşəkarlıq, Dəqiqlik, Dürüstlük. Mürəkkəb korporativ və bank mühitləri üçün institusional-dərəcəli maliyyə kəşfiyyatı.
             </p>
+            {/* Contact info */}
+            <div className="flex flex-col gap-3 mb-8">
+              <a
+                href="tel:+994102607788"
+                className="flex items-center gap-3 font-body-sm text-body-sm text-white/60 hover:text-white transition-colors group"
+              >
+                <span className="material-symbols-outlined text-secondary group-hover:text-white transition-colors" style={{ fontSize: '16px' }}>phone_in_talk</span>
+                +994 10 260 77 88
+              </a>
+              <a
+                href="mailto:Info@principal.az"
+                className="flex items-center gap-3 font-body-sm text-body-sm text-white/60 hover:text-white transition-colors group"
+              >
+                <span className="material-symbols-outlined text-secondary group-hover:text-white transition-colors" style={{ fontSize: '16px' }}>mail</span>
+                Info@principal.az
+              </a>
+            </div>
+
             {/* Social links */}
             <div className="flex gap-3">
               {[

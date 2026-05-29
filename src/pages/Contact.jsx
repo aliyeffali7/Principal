@@ -87,9 +87,9 @@ export default function Contact() {
           <div className="bg-white border border-outline-variant rounded-2xl p-8 space-y-6 shadow-[0_4px_24px_-8px_rgba(5,27,14,0.08)]">
             <h3 className="font-headline-md text-headline-md text-primary">Birbaşa Əlaqə</h3>
             {[
-              { icon: 'phone_in_talk', label: 'Baş Ofis', value: '+1 (800) 455-AUDIT' },
-              { icon: 'mail', label: 'E-poçt Sorğuları', value: 'contact@principalaudit.com' },
-              { icon: 'location_on', label: 'Qlobal Qərargah', value: '1200 Financial Plaza, Suite 400\nMaliyyə Bölgəsi, New York, NY 10005' },
+              { icon: 'phone_in_talk', label: 'Əlaqə Nömrəsi', value: '+994 10 260 77 88', href: 'tel:+994102607788' },
+              { icon: 'mail', label: 'E-poçt', value: 'Info@principal.az', href: 'mailto:Info@principal.az' },
+              { icon: 'location_on', label: 'Ünvan', value: 'Bakı, Azərbaycan' },
             ].map(item => (
               <div key={item.label} className="flex items-start gap-4">
                 <div className="p-3 bg-secondary-container text-on-secondary-container rounded-lg">
@@ -97,7 +97,11 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-label-md text-label-md uppercase text-on-surface-variant mb-1">{item.label}</p>
-                  <p className="font-body-lg font-bold text-primary whitespace-pre-line">{item.value}</p>
+                  {item.href ? (
+                    <a href={item.href} className="font-body-lg font-bold text-primary hover:text-secondary transition-colors whitespace-pre-line">{item.value}</a>
+                  ) : (
+                    <p className="font-body-lg font-bold text-primary whitespace-pre-line">{item.value}</p>
+                  )}
                 </div>
               </div>
             ))}
