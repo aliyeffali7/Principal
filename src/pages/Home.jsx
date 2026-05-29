@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const HERO_IMG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBRqta_L3d5fIFS78e3yfMbN4PWnwVaKocSd1UOu5IQC5UoJc1ry2hfzFA8nTSNnxQrgBO7MNBYg6B4Y_1qD6SU2nmOHY-CefdKrzdtYDO_p-_kjf9aRiSyYUX69ZvaX8yFJfBtySj3bYsanncQ-DyGBI19f9H0g7SjpRZbk-WYKjvKrIMQsCjfW_N64srxbYu98FjkNF_x6L-P4IRkuk3vKzAoLKcTapcisIVYE-p88XeyEpLMGuk-oQ0XgFNqe1MxRfrgFUnU9g'
-const BANK_IMG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDSHPPWeLwMQS7aJTbb6s70ZvwV9F7cyXJK1b7YAD0svTxOqPWaZdVz0hSvBWsGSldthm0dIBiewEm-NZU5iagStw2IUKtrRDK9awHq0Biw5MEU7C7IIWBKZWaBp9vCO4A-uaMah8iV3fs5QTN6qz8U96L8bGeIQcyqV14T7HsD7m4nFoxD_uWTl6t6QK6x6BV7iK2GM3uP-RwmacROTDZYmhOFmqElD78tfzMZoyA'
 
 const partners = ['GLOBEX BANK', 'SYNERGY CORP', 'FORTRESS FIN', 'VERTEX ASSET', 'NEXUS CAP', 'APEX CORP', 'TITAN FUND', 'DELTA GROUP']
 
@@ -55,7 +54,6 @@ const services = [
 export default function Home() {
   const partnersRef = useScrollReveal()
   const servicesRef = useScrollReveal()
-  const statsRef = useScrollReveal()
   const ctaRef = useScrollReveal()
 
   return (
@@ -236,92 +234,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Featured / Bank audit spotlight ─────────────────── */}
-      <section className="py-16 bg-background">
-        <div className="max-w-container-max mx-auto px-margin-desktop">
-          <div className="rounded-3xl overflow-hidden bg-primary grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[520px]">
-            {/* Text */}
-            <div className="py-24 pr-0 lg:pr-20 flex flex-col justify-center">
-              <span className="section-label mb-8" style={{ color: '#3c6846' }}>
-                <span className="w-6 h-px bg-secondary inline-block mr-3" />
-                Əsas Kompetensiya
-              </span>
-              <h2 className="font-headline-lg text-headline-lg text-white mb-6 leading-tight">
-                İnstitusional Bank <br />Audit Mükəmməlliyi
-              </h2>
-              <p className="font-body-md text-body-md text-white/60 mb-8 leading-relaxed max-w-md">
-                Bank audit bölümümüz Basel III/IV, IFRS 9 və suveren uyğunluq çərçivələrinin mürəkkəb tənzimləyici mühitini naviqasiya edir — ən vacib məqamda əminlik çatdıraraq.
-              </p>
-              <ul className="space-y-4 mb-10">
-                {[
-                  'Tənzimləyici Uyğunluq (Basel III / IV)',
-                  'Əməliyyat Riski İdarəsi',
-                  'Kredit Portfelinin Yoxlanması & Stres Testi',
-                  'AML & Fırıldaqçılıq Aşkarlama Çərçivələri',
-                ].map(item => (
-                  <li key={item} className="flex items-center gap-3 text-white/70 font-body-sm text-body-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                to="/services/auditor"
-                className="group inline-flex items-center gap-3 bg-secondary text-on-secondary px-8 py-4 rounded-lg font-label-md text-label-md uppercase tracking-widest hover:brightness-110 transition-all self-start"
-              >
-                Auditor Xidmətləri
-                <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">
-                  arrow_forward
-                </span>
-              </Link>
-            </div>
-
-            {/* Image */}
-            <div className="relative overflow-hidden min-h-[400px] lg:min-h-0">
-              <img
-                src={BANK_IMG}
-                alt="Bank qurumu"
-                className="absolute inset-0 w-full h-full object-cover opacity-40"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary via-transparent to-transparent" />
-              {/* Floating badge */}
-              <div className="absolute bottom-10 right-10 glass p-6 max-w-[200px]">
-                <p className="font-label-md text-label-md text-white/50 uppercase tracking-widest text-[10px] mb-2">
-                  Uyğunluq Dərəcəsi
-                </p>
-                <p className="font-bold text-white text-4xl leading-none">99.8%</p>
-                <p className="font-body-sm text-body-sm text-white/40 mt-2 text-[11px]">
-                  2023-cü il bütün bank işləri üzrə
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Stats bar ────────────────────────────────────────── */}
-      <section
-        ref={statsRef}
-        className="reveal py-16 bg-background"
-      >
-        <div className="max-w-container-max mx-auto px-margin-desktop">
-          <div className="bg-surface-container-low rounded-3xl border border-outline-variant p-10 grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((s, i) => (
-              <div
-                key={s.label}
-                className="flex flex-col items-center text-center"
-              >
-                <div className="stat-number font-bold leading-none mb-3" style={{ fontSize: 'clamp(36px, 4vw, 56px)' }}>
-                  {s.value}
-                </div>
-                <div className="font-label-md text-label-md text-on-surface-variant uppercase tracking-[0.2em] text-[11px]">
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section
